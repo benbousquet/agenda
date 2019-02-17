@@ -10,13 +10,8 @@ import {
   Link
 } from 'react-router-dom'
 
-
-@inject('MainStore')
-@observer
 class App extends Component {
   render() {
-    const { MainStore } = this.props;
-    
     return (
       <div className="App">
         <Router>
@@ -32,8 +27,7 @@ class App extends Component {
             <Route path="/Settings" component={Settings}/>
           </div>
         </Router>
-        <Button type="primary">Add Event</Button>
-        <h2>Events: [{MainStore.eventCount}]</h2>
+        
       </div>
     );
   }
