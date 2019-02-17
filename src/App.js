@@ -3,7 +3,6 @@ import Home from './pages/Home';
 import Settings from './pages/Settings'
 import './App.css';
 import { Icon } from 'antd';
-
 import {
   BrowserRouter as Router,
   Route,
