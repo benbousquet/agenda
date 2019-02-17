@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import { observer, inject } from 'mobx-react';
 import Home from './pages/Home';
 import Settings from './pages/Settings'
-import Button from 'antd/lib/button';
 import './App.css';
+import { Icon } from 'antd';
+
 import {
   BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom'
+
 
 class App extends Component {
   render() {
@@ -16,10 +17,8 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/Settings">Settings</Link></li>
-            </ul>
+              <Link to="/"><Icon type="home" style={{ fontSize: '24px', color: '#08c', paddingRight: '10px'}} /></Link>
+              <Link to="/Settings"><Icon type="setting" style={{ fontSize: '24px', color: '#08c', paddingLeft: '10px'}} /></Link>
 
             <hr/>
 
