@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+  import React, { Component } from 'react';
 import Home from './pages/Home';
 import Settings from './pages/Settings'
 import './App.css';
@@ -16,11 +16,10 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
+            <div style={{ padding: '30px'}}>
               <Link to="/"><Icon type="home" style={{ fontSize: '24px', color: '#08c', paddingRight: '10px'}} /></Link>
               <Link to="/Settings"><Icon type="setting" style={{ fontSize: '24px', color: '#08c', paddingLeft: '10px'}} /></Link>
-
-            <hr/>
-
+            </div>
             <Route exact path="/" component={Home}/>
             <Route path="/Settings" component={Settings}/>
           </div>

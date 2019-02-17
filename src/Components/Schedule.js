@@ -1,14 +1,40 @@
 import React from "react"
+import { List } from "antd"
+import {inject, observer} from 'mobx-react';
+import {observe} from 'mobx';
 
-import Event from "./Event"
+@inject('MainStore')
+@observer
+class Schedule extends React.Component{
+    makeSchedule () {
+        let { MainStore } = this.props;
 
-function Schedule(){
-    return(
-        <React.Fragment>
-            /* for each event, make new entry in scedule */
-            /* display entries on schedule page */
-        </React.Fragment>
-    )
+        return (
+            <List
+            itemLayout="horizontal"
+            dataSource={MainStore.events}
+            renderItem={item => (
+                <List.Item>
+                    <List.Item.Meta 
+                        title={item.name}
+                        description={item.endDate.format("dddd, MMMM Do YYYY, h:mm:ss a")}
+                    />
+                </List.Item>
+            )}
+            />
+        )
+    }
+
+    render() {
+        let { MainStore } = this.props;
+
+        observe(MainStore.events, change => {
+            this.forceUpdate();
+        });
+        console.log(MainStore.events)
+        return this.makeSchedule();
+    }
+
 }
 
 export default Schedule
