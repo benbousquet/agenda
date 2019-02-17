@@ -1,8 +1,9 @@
 import React from "react";
-
+import {inject, observer} from 'mobx-react'
+import Button from 'antd/lib/button';
 @inject('MainStore')
 @observer
-export default class Home extends React.Component{
+class Home extends React.Component {
     render () {
         const { MainStore } = this.props;
         return (
@@ -15,3 +16,4 @@ export default class Home extends React.Component{
     }
     
 }
+export default Home
